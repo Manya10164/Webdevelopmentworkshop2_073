@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Homepage Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --nav-dark: #131921;
+      --nav-blue: #232f3e;
+      --accent: #febd69;
+      --page-bg: #eaeded;
+      --card-bg: #ffffff;
+      --text: #0f1111;
+      --muted: #565959;
+      --link: #2162a1;
+      --border: #d5d9d9;
+      --radius: 4px;
+      --shadow: 0 1px 2px rgba(15,17,17,.15);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, Arial, sans-serif; color: var(--text); background: var(--page-bg); }
+    img { display:block; max-width:100%; }
+    a { color: inherit; text-decoration: none; }
+    .topbar { background: var(--nav-dark); color: #fff; padding: 10px 18px; display: grid; grid-template-columns: 170px 1fr 80px 150px 100px 80px; gap: 12px; align-items: center; }
+    .logo { font-size: 30px; font-weight: 700; letter-spacing: -.5px; line-height: 1; }
+    .logo span { color: var(--accent); font-size: 14px; vertical-align: middle; }
+    .deliver { font-size: 12px; line-height: 1.2; color: #ccc; }
+    .deliver strong { color: #fff; display:block; font-size: 13px; }
+    .searchbar { display:flex; height: 40px; border-radius: var(--radius); overflow:hidden; background:#fff; }
+    .searchbar select,.searchbar input,.searchbar button { border:0; outline:0; font: inherit; }
+    .searchbar select { background:#f3f3f3; padding:0 10px; color:#555; width:60px; }
+    .searchbar input { flex:1; padding:0 12px; }
+    .searchbar button { width:45px; background: var(--accent); font-size:18px; cursor:pointer; }
+    .navmeta { font-size: 12px; line-height: 1.2; }
+    .navmeta strong { display:block; font-size:14px; color:#fff; }
+    .cart { font-weight:700; font-size:14px; }
+    .subnav { background: var(--nav-blue); color:#fff; padding: 8px 18px; display:flex; gap:18px; font-size:14px; white-space:nowrap; overflow:auto; }
+    .subnav::-webkit-scrollbar { display:none; }
+    .hero-wrap { max-width: 1150px; margin: 0 auto; position: relative; }
+    .hero { height: 320px; background: linear-gradient(180deg,#f3bfd1 0%,#f0bfd0 60%,rgba(240,191,208,0) 100%); overflow:hidden; position:relative; display:flex; align-items:flex-start; justify-content:center; }
+    .hero-content { margin-top: 38px; text-align:center; }
+    .hero-eyebrow { font-size: 38px; font-weight:800; line-height:1; }
+    .hero-title { font-size: 28px; margin-top:6px; }
+    .hero-products { display:flex; gap:20px; align-items:flex-end; justify-content:center; margin-top:20px; }
+    .hero-products img { height: 110px; object-fit: contain; filter: drop-shadow(0 12px 12px rgba(0,0,0,.15)); background:transparent; }
+    .hero-arrow { position:absolute; top: 130px; font-size:50px; color:#444; opacity:.8; user-select:none; }
+    .hero-arrow.left { left:14px; }
+    .hero-arrow.right { right:14px; }
+    .cards { max-width: 1150px; margin: -64px auto 0; padding: 0 14px; display:grid; grid-template-columns: repeat(4, 1fr); gap:20px; position:relative; z-index:2; }
+    .card { background: var(--card-bg); padding: 18px 18px 14px; box-shadow: var(--shadow); min-height: 405px; }
+    .card h2 { font-size: 21px; line-height: 1.3; margin: 0 0 14px; font-weight:700; }
+    .tile-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px 14px; }
+    .tile img { width:100%; height:115px; object-fit:cover; background:#f7f7f7; }
+    .tile span { display:block; margin-top:6px; font-size:12px; color:#0f1111; }
+    .see-more { display:inline-block; margin-top:18px; font-size:13px; color: var(--link); }
+    .project-note { max-width: 1150px; margin: 14px auto 28px; text-align:center; padding: 0 24px 30px; color:#555; }
+    .project-note h3 { margin: 10px 0 16px; font-size: 22px; color:#444; font-weight:600; }
+    .project-note p { line-height:1.7; margin: 0 auto; max-width: 980px; }
+    @media (max-width: 1100px) { .topbar { grid-template-columns: 150px 1fr 90px 120px 90px 70px; } .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 760px) { .topbar { grid-template-columns: 1fr; gap:10px; } .deliver, .navmeta, .cart { display:none; } .hero { height: 240px; } .hero-content { margin-top: 28px; } .hero-eyebrow { font-size: 26px; } .hero-title { font-size: 20px; } .hero-products img { height: 72px; } .cards { grid-template-columns: 1fr; margin-top: -30px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">amazon<span>.in</span></div>
+      <div class="deliver">Delivering to Ghaziabad 201009 <strong>Update location</strong></div>
+      <div class="searchbar">
+        <select aria-label="All categories"><option>All</option></select>
+        <input type="text" placeholder="Search Amazon.in" aria-label="Search Amazon.in" />
+        <button aria-label="Search">🔍</button>
+      </div>
+      <div class="navmeta">EN<strong>Hello, sign in<br>Account & Lists</strong></div>
+      <div class="navmeta">Returns<strong>& Orders</strong></div>
+      <div class="cart">🛒 Cart</div>
+    </div>
+
+    <nav class="subnav" aria-label="Primary">
+      <a href="#">☰ All</a>
+      <a href="#">Fresh</a>
+      <a href="#">MX Player</a>
+      <a href="#">Sell</a>
+      <a href="#">Bestsellers</a>
+      <a href="#">Mobiles</a>
+      <a href="#">Customer Service</a>
+      <a href="#">Today's Deals</a>
+      <a href="#">New Releases</a>
+      <a href="#">Prime</a>
+      <a href="#">Fashion</a>
+      <a href="#">Electronics</a>
+      <a href="#">Amazon Pay</a>
+      <a href="#">Home & Kitchen</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-wrap">
+      <div class="hero">
+        <div class="hero-arrow left">‹</div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow">UNDER ₹499</div>
+          <div class="hero-title">Glam face makeup</div>
+
+          <div class="hero-products">
+            <img src="https://m.media-amazon.com/images/I/51Qf4A1R0uL._AC_SY355_.jpg" alt="Makeup fixer" width="90" height="110" />
+            <img src="https://m.media-amazon.com/images/I/71YXzeOuslL._AC_SY355_.jpg" alt="Makeup palette" width="110" height="110" />
+            <img src="https://m.media-amazon.com/images/I/51oE9dP2R+L._AC_SY355_.jpg" alt="Beauty cream" width="75" height="110" />
+          </div>
+        </div>
+
+        <div class="hero-arrow right">›</div>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h2>Appliances for your home | Up to 55% off</h2>
+        <div class="tile-grid">
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=400&q=80" alt="Air conditioners" width="180" height="115"><span>Air conditioners</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1584568694244-fc83d9fbd684?auto=format&fit=crop&w=400&q=80" alt="Refrigerators" width="180" height="115"><span>Refrigerators</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=400&q=80" alt="Microwaves" width="180" height="115"><span>Microwaves</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=400&q=80" alt="Washing machines" width="180" height="115"><span>Washing machines</span></a>
+        </div>
+        <a class="see-more" href="#">See more</a>
+      </article>
+
+      <article class="card">
+        <h2>Revamp your home in style</h2>
+        <div class="tile-grid">
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" alt="Cushion covers bedsheets and more" width="180" height="115"><span>Cushion covers, bedsheets & more</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=400&q=80" alt="Figurines and vases" width="180" height="115"><span>Figurines, vases & more</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" alt="Home storage" width="180" height="115"><span>Home storage</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=400&q=80" alt="Lighting solutions" width="180" height="115"><span>Lighting solutions</span></a>
+        </div>
+        <a class="see-more" href="#">Explore all</a>
+      </article>
+
+      <article class="card">
+        <h2>Bulk order discounts +<br>Up to 18% GST savings</h2>
+        <div class="tile-grid">
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=400&q=80" alt="Laptops" width="180" height="115"><span>Up to 45% off | Laptops</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1586208958839-06c17cacdf08?auto=format&fit=crop&w=400&q=80" alt="Kitchen appliances" width="180" height="115"><span>Up to 60% off | Kitchen appliances</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=400&q=80" alt="Office furniture" width="180" height="115"><span>Min. 50% off | Office furniture</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80" alt="Business registration" width="180" height="115"><span>Register using GST, Udyam, FSSAI or BPAN</span></a>
+        </div>
+        <a class="see-more" href="#">Create a free account</a>
+      </article>
+
+      <article class="card">
+        <h2>Starting ₹49 | Deals on home essentials</h2>
+        <div class="tile-grid">
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1583947582886-f40ec95dd752?auto=format&fit=crop&w=400&q=80" alt="Cleaning supplies" width="180" height="115"><span>Cleaning supplies</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=400&q=80" alt="Bathroom accessories" width="180" height="115"><span>Bathroom accessories</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1581147036324-c1c3b4234f96?auto=format&fit=crop&w=400&q=80" alt="Home tools" width="180" height="115"><span>Home tools</span></a>
+          <a class="tile" href="#"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="Wallpapers" width="180" height="115"><span>Wallpapers</span></a>
+        </div>
+        <a class="see-more" href="#">Explore all</a>
+      </article>
+    </section>
+
+    <section class="project-note">
+      <h3>Mandatory Web Development Project (Amazon Homepage Clone)</h3>
+      <p>Dear Students,</p>
+      <p>As per the instructions of the respective <strong>Dean Academics &amp; Training Sir</strong>, it is mandatory for all students to work on their <strong>*Web Development Major Project...</strong></p>
+    </section>
+  </main>
+</body>
+</html>
