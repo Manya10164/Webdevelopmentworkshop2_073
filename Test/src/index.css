@@ -1,0 +1,48 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f7f5d9;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  color: darkred;
+  margin-bottom: 50px;
+  font-size: 50px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 350px;
+  padding: 30px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.card h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 28px;
+  color: white;
+  text-align: left;
+}
