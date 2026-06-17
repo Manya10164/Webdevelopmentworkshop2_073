@@ -7,8 +7,8 @@ const App = () => {
 
   return (
     // <div>App</div>
-    // <Sample/>
-    <Sample2/>
+    <Sample/>
+    
   )
 }
 

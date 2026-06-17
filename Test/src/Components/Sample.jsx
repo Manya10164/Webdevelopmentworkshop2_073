@@ -1,11 +1,7 @@
-import React from 'react'
-
-const Sample = () => {
-  return (
-    <// App.js
+// App.js
 
 import React from "react";
-import "./App.css";
+
 
 function ProductCard({ name, price, category, bgColor, borderColor, textColor }) {
   return (
@@ -67,11 +63,4 @@ function App() {
   );
 }
 
-export default App;>
-    <div>Sample</div>
-   name <input type="text" />
-    </>
-  )
-}
-
-export default Sample
+export default App;
