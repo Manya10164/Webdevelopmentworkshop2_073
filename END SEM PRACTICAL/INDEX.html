@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vowel or Consonant Checker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2>Vowel or Consonant Checker</h2>
+    <div class="container">
+        <h2>🔤 Vowel or Consonant Checker</h2>
 
-    <input type="text" id="charInput" maxlength="1" placeholder="Enter a character">
-    <button onclick="checkCharacter()">Check</button>
+        <input type="text" id="charInput" maxlength="1" placeholder="Enter a character">
 
-    <p id="result"></p>
+        <button onclick="checkCharacter()">Check</button>
+
+        <p id="result"></p>
+    </div>
 
     <script>
         function checkCharacter() {
             let ch = document.getElementById("charInput").value.toLowerCase();
+            let result = document.getElementById("result");
 
             if (ch.length === 0) {
-                document.getElementById("result").innerHTML = "Please enter a character.";
+                result.innerHTML = "Please enter a character.";
+                result.style.color = "#ff9800";
             }
             else if (ch >= 'a' && ch <= 'z') {
                 if (ch === 'a' || ch === 'e' || ch === 'i' || ch === 'o' || ch === 'u') {
-                    document.getElementById("result").innerHTML = ch + " is a Vowel.";
+                    result.innerHTML = `✅ '${ch}' is a Vowel`;
+                    result.style.color = "#4CAF50";
                 } else {
-                    document.getElementById("result").innerHTML = ch + " is a Consonant.";
+                    result.innerHTML = `🔹 '${ch}' is a Consonant`;
+                    result.style.color = "#2196F3";
                 }
             }
             else {
-                document.getElementById("result").innerHTML = "Please enter a valid alphabet.";
+                result.innerHTML = "❌ Please enter a valid alphabet.";
+                result.style.color = "#f44336";
             }
         }
     </script>
